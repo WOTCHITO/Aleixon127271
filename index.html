@@ -3,157 +3,223 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apk Mods - Plataforma de Modificaciones</title>
-    <meta name="description" content="Descubre y descarga los mejores mods para Android, Windows y iPhone. Tu plataforma de modificaciones favorita.">
-    <meta name="theme-color" content="#3ecf8e">
-
-    <!-- Favicon -->
-    <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="assets/icons/favicon.ico" type="image/x-icon">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://apk-mods-one.vercel.app"> <!-- Replace with your actual URL -->
-    <meta property="og:title" content="Apk Mods - Plataforma de Modificaciones">
-    <meta property="og:description" content="Descubre y descarga los mejores mods para Android, Windows y iPhone. Tu plataforma de modificaciones favorita.">
-    <meta property="og:image" content="https://rogddqelmxyuvhpjvxbf.supabase.co/storage/v1/object/public/files/7uyolmkhm23.png"> <!-- Replace with your actual OG image -->
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://apk-mods-one.vercel.app/"> <!-- Replace with your actual URL -->
-    <meta property="twitter:title" content="Apk Mods - Plataforma de Modificaciones">
-    <meta property="twitter:description" content="Descubre y descarga los mejores mods para Android, Windows y iPhone. Tu plataforma de modificaciones favorita.">
-    <meta property="twitter:image" content="https://rogddqelmxyuvhpjvxbf.supabase.co/storage/v1/object/public/files/7uyolmkhm23.png"> <!-- Replace with your actual Twitter image -->
-
-    <link rel="stylesheet" href="src/style.css">
+    <title>Documentación de la API de Apk Mods</title>
+    <style>
+        body {
+            font-family: 'Satoshi', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #3ecf8e;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: none;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+        code {
+            background-color: #eef;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: 'Fira Code', 'Consolas', monospace;
+        }
+        pre {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Fira Code', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .endpoint {
+            background-color: #e8f5e9;
+            border-left: 5px solid #3ecf8e;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .endpoint h3 {
+            margin-top: 0;
+            color: #2e7d32;
+            border-bottom: none;
+        }
+        .method {
+            background-color: #3ecf8e;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .param-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .param-table th, .param-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .param-table th {
+            background-color: #f2f2f2;
+        }
+        .note {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 5px;
+            color: #664d03;
+        }
+    </style>
     <link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="app-container">
-        <header class="header">
-            <div class="header-content">
-                <div class="logo">
-                    <h1>Apk Mods</h1>
-                    <span class="logo-subtitle">Plataforma de Modificaciones</span>
-                </div>
-                <nav class="header-nav">
-                    <div class="search-container">
-                        <input type="text" placeholder="Buscar mods..." class="search-input" id="searchInput">
-                        <button class="search-btn">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <path d="m21 21-4.35-4.35"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </nav>
-            </div>
-        </header>
+    <div class="container">
+        <h1>Documentación de la API de Apk Mods</h1>
 
-        <div class="main-layout">
-            <aside class="sidebar">
-                <div class="sidebar-content">
-                    <h3 class="sidebar-title">Plataformas</h3>
-                    <nav class="sidebar-nav">
-                        <a href="?section=android&id=apkmods" class="nav-item active" data-platform="android">
-                            <img src="assets/icons/android.png" alt="Android" class="nav-icon">
-                            <span>Android</span>
-                            <div class="nav-indicator"></div>
-                        </a>
-                        <a href="?section=windows&id=apkmods" class="nav-item" data-platform="windows">
-                            <img src="assets/icons/windows.png" alt="Windows" class="nav-icon">
-                            <span>Windows</span>
-                            <div class="nav-indicator"></div>
-                        </a>
-                        <a href="?section=iphone&id=apkmods" class="nav-item" data-platform="iphone">
-                            <img src="assets/icons/iphone.png" alt="iPhone" class="nav-icon">
-                            <span>iPhone</span>
-                            <div class="nav-indicator"></div>
-                        </a>
-                    </nav>
-                </div>
-            </aside>
+        <p>¡Hola! Si estás aquí, probablemente quieres integrar los datos de Apk Mods en tu propio proyecto. ¡Genial! Hemos creado esta API para que puedas acceder a nuestra colección de mods de forma sencilla y programática. Aquí te explicamos cómo usarla, sin rodeos y con ejemplos claros.</p>
 
-            <main class="main-content">
-                <div class="content-header">
-                    <h2 class="section-title" id="sectionTitle">Mods para Android</h2>
-                    <div class="content-stats">
-                        <span class="stats-item" id="modsCount">0 mods disponibles</span>
-                    </div>
-                </div>
+        <h2>URL Base de la API</h2>
+        <pre><code>https://apk-mods-one.vercel.app/api/mods</code></pre>
 
-                <div class="mods-grid" id="modsGrid">
-                    <div class="loading-state">
-                        <div class="loading-spinner"></div>
-                        <p>Cargando mods...</p>
-                    </div>
-                </div>
+        <p class="note"><strong>Nota importante:</strong> Esta API es de solo lectura (GET). No puedes modificar ni añadir mods a través de ella. Para añadir mods, usa nuestra interfaz web.</p>
 
-                <div class="empty-state" id="emptyState" style="display: none;">
-                    <div class="empty-icon">
-                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                            <circle cx="9" cy="9" r="2"></circle>
-                            <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path>
-                        </svg>
-                    </div>
-                    <h3>No hay mods disponibles</h3>
-                    <p>No se encontraron mods para esta plataforma. ¡Sé el primero en agregar uno!</p>
-                </div>
-            </main>
+        <h2>Endpoints Disponibles</h2>
+
+        <div class="endpoint">
+            <h3><span class="method">GET</span> /api/mods</h3>
+            <p>Obtiene una lista de todos los mods disponibles, o filtra por criterios específicos.</p>
+
+            <h4>Parámetros de Consulta (Query Parameters)</h4>
+            <table class="param-table">
+                <thead>
+                    <tr>
+                        <th>Parámetro</th>
+                        <th>Tipo</th>
+                        <th>Descripción</th>
+                        <th>Ejemplo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>id</code></td>
+                        <td><code>number</code></td>
+                        <td>Filtra por el ID único del mod.</td>
+                        <td><code>?id=123</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>name</code></td>
+                        <td><code>string</code></td>
+                        <td>Busca mods cuyo nombre contenga el texto especificado (búsqueda parcial, insensible a mayúsculas/minúsculas).</td>
+                        <td><code>?name=whatsapp</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>description</code></td>
+                        <td><code>string</code></td>
+                        <td>Busca mods cuya descripción contenga el texto especificado (búsqueda parcial, insensible a mayúsculas/minúsculas).</td>
+                        <td><code>?description=grabador</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>version</code></td>
+                        <td><code>string</code></td>
+                        <td>Busca mods por su versión (búsqueda parcial, insensible a mayúsculas/minúsculas).</td>
+                        <td><code>?version=2.23</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>developer</code></td>
+                        <td><code>string</code></td>
+                        <td>Busca mods por el nombre del desarrollador (búsqueda parcial, insensible a mayúsculas/minúsculas).</td>
+                        <td><code>?developer=moddev</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>download_link</code></td>
+                        <td><code>string</code></td>
+                        <td>Busca mods por su link de descarga (búsqueda parcial, insensible a mayúsculas/minúsculas).</td>
+                        <td><code>?download_link=mediafire</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>search</code></td>
+                        <td><code>string</code></td>
+                        <td>Realiza una búsqueda de texto completo inteligente en los campos de nombre, descripción y desarrollador. Ideal para búsquedas generales.</td>
+                        <td><code>?search=grabador de pantalla</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Ejemplos de Uso</h4>
+
+            <h5>Obtener todos los mods</h5>
+            <pre><code>curl https://apk-mods-one.vercel.app/api/mods</code></pre>
+            <pre><code>fetch('https://apk-mods-one.vercel.app/api/mods')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));</code></pre>
+
+            <h5>Buscar mods por nombre</h5>
+            <pre><code>curl https://apk-mods-one.vercel.app/api/mods?name=whatsapp</code></pre>
+            <pre><code>fetch('https://apk-mods-one.vercel.app/api/mods?name=whatsapp')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));</code></pre>
+
+            <h5>Búsqueda inteligente (texto completo)</h5>
+            <pre><code>curl https://apk-mods-one.vercel.app/api/mods?search=grabador de pantalla</code></pre>
+            <pre><code>fetch('https://apk-mods-one.vercel.app/api/mods?search=grabador de pantalla')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));</code></pre>
         </div>
 
-        <div class="mod-modal" id="modModal" style="display: none;">
-            <div class="modal-overlay" id="modalOverlay"></div>
-            <div class="modal-content">
-                <button class="modal-close" id="modalClose">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                </button>
-                
-                <div class="modal-header">
-                    <div class="mod-icon-large">
-                        <img id="modalIcon" src="" alt="Mod Icon">
-                    </div>
-                    <div class="mod-info-header">
-                        <h2 id="modalTitle">Nombre del Mod</h2>
-                        <p class="mod-developer" id="modalDeveloper">Desarrollador</p>
-                        <div class="mod-meta">
-                            <span class="mod-version" id="modalVersion">v1.0</span>
-                            <span class="mod-platform" id="modalPlatform">Android</span>
-                            <span class="mod-size" id="modalSize">50 MB</span>
-                        </div>
-                    </div>
-                </div>
+        <h2>Formato de la Respuesta</h2>
+        <p>La API siempre devolverá un array de objetos JSON. Si no se encuentran mods, devolverá un array vacío.</p>
+        <pre><code>[
+  {
+    "id": 1,
+    "name": "WhatsApp Plus",
+    "description": "Versión modificada de WhatsApp con funciones extra.",
+    "version": "v19.50.0",
+    "developer": "AlexMods",
+    "download_link": "https://ejemplo.com/whatsapp-plus",
+    "icon_url": "https://i.ibb.co/your-image.png"
+  },
+  {
+    "id": 2,
+    "name": "XRecorder Pro",
+    "description": "Grabador de pantalla avanzado para Android.",
+    "version": "v1.2.3",
+    "developer": "RecorderDev",
+    "download_link": "https://ejemplo.com/xrecorder-pro",
+    "icon_url": "https://i.ibb.co/another-image.png"
+  }
+]</code></pre>
 
-                <div class="modal-body">
-                    <div class="mod-description">
-                        <h3>Descripción</h3>
-                        <p id="modalDescription">Descripción del mod...</p>
-                    </div>
+        <h2>Errores</h2>
+        <p>En caso de un error en el servidor, la API devolverá un código de estado HTTP <code>500 Internal Server Error</code> con un objeto JSON que contendrá un mensaje de error.</p>
+        <pre><code>{
+  "error": "Internal Server Error"
+}</code></pre>
 
-                    <div class="download-section">
-                        <button class="brutalist-button" id="downloadBtn">
-                            <div class="ms-logo">
-                                <div class="ms-logo-square"></div>
-                                <div class="ms-logo-square"></div>
-                                <div class="ms-logo-square"></div>
-                                <div class="ms-logo-square"></div>
-                            </div>
-                            <div class="button-text">
-                                <span>Descargar desde</span>
-                                <span id="downloadPlatform">Android</span>
-                            </div>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <p>¡Esperamos que esta API te sea de gran utilidad! Si tienes alguna pregunta, no dudes en contactarnos.</p>
     </div>
-
-    <script type="module" src="src/script.js"></script>
 </body>
 </html>
-
